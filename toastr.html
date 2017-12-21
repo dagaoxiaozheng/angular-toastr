@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="indexController">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<link rel="stylesheet" href="./angular-toastr.min.css">
+<script src="./angular.min.js"></script>
+<script src="./angular-animate.min.js"></script>
+<script src="./angular-toastr.tpls.min.js"></script>
+<button ng-click="btnClick(1)">success</button>
+<button ng-click="btnClick(2)">info</button>
+<button ng-click="btnClick(3)">warning</button>
+<button ng-click="btnClick(4)">error</button>
+<script>
+    var app = angular.module('app', ['ngAnimate', 'toastr'])
+    app.controller('indexController', ['$scope', 'toastr', function ($scope, toastr) {
+        $scope.btnClick = function (num) {
+            switch (num){
+                case 1:
+                    toastr.success('success!');
+                    break;
+                case 2:
+                    toastr.info('info!');
+                    break;
+                case 3:
+                    toastr.warning('warning!');
+                    break;
+                case 4:
+                    toastr.error('error!');
+                    break;
+            }
+        }
+    }])
+</script>
+</body>
+</html>
